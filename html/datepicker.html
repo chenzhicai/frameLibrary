@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="../css/libs/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="../css/vendors/bootstrap-datetimepicker.css">
+    <script type="text/javascript" src="../js/libs/jquery-3.0.0.js"></script>
+    <script type="text/javascript" src="../js/libs/bootstrap4.0.0.js"></script>
+    <script type="text/javascript" src="../js/componests/bootstrap-datetimepicker.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <form action="" class="form-horizontal" role="form">
+            <fieldset>
+                <legend>Test</legend>
+                <div class="form-group">
+                    <label for="dtp_input1" class="col-md-2 control-label">DateTime Picking</label>
+                    <div class="input-group date form_datetime col-md-5" data-date="1979-09-16T05:25:07Z" data-date-format="dd MM yyyy - HH:ii p" data-link-field="dtp_input1">
+                        <input class="form-control" size="16" type="text" value="" readonly>
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
+                    </div>
+                    <input type="hidden" id="dtp_input1" value="" />
+                    <br/>
+                </div>
+                <div class="form-group">
+                    <label for="dtp_input2" class="col-md-2 control-label">Date Picking</label>
+                    <div class="input-group date form_date col-md-5" data-date="" data-date-format="dd MM yyyy" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">
+                        <input class="form-control" size="16" type="text" value="" readonly>
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+                    </div>
+                    <input type="hidden" id="dtp_input2" value="" />
+                    <br/>
+                </div>
+                <div class="form-group">
+                    <label for="dtp_input3" class="col-md-2 control-label">Time Picking</label>
+                    <div class="input-group date form_time col-md-5" data-date="" data-date-format="hh:ii" data-link-field="dtp_input3" data-link-format="hh:ii">
+                        <input class="form-control" size="16" type="text" value="" readonly>
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-time"></span></span>
+                    </div>
+                    <input type="hidden" id="dtp_input3" value="" />
+                    <br/>
+                </div>
+                <div class="form-group">
+                    <label for="dtp_input2" class="col-md-2 control-label">month Picking</label>
+                    <div class="input-group date form_month col-md-5" data-date="102/16" data-date-format="mm/yy" data-date-viewmode="years" data-date-minviewmode="moths">
+                        <input class="form-control" size="16" type="text" value="" readonly>
+                        
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+                    </div>
+                    <input type="hidden" id="dtp_input2" value="" />
+                    <br/>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+    <script type="text/javascript">
+    $.fn.datetimepicker.dates['zh'] = {  
+                days:       ["星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六","星期日"],  
+                daysShort:  ["日", "一", "二", "三", "四", "五", "六","日"],  
+                daysMin:    ["日", "一", "二", "三", "四", "五", "六","日"],  
+                months:     ["一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月","十二月"],  
+                monthsShort:  ["一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月","十二月"],  
+                meridiem:    ["上午", "下午"],  
+                //suffix:      ["st", "nd", "rd", "th"],  
+                today:       "今天"  
+        }; 
+    $('.form_datetime').datetimepicker({
+        //language:  'fr',
+        weekStart: 1,
+        todayBtn: 1,
+        autoclose: 1,
+        todayHighlight: 1,
+        startView: 2,
+        forceParse: 0,
+        showMeridian: 1
+    });
+    $('.form_date').datetimepicker({
+        language: 'fr',
+        weekStart: 1,
+        todayBtn: 1,
+        autoclose: 1,
+        todayHighlight: 1,
+        startView: 2,
+        minView: 2,
+        forceParse: 0
+    });
+
+
+    $('.form_month').datetimepicker({
+//        language: 'fr',
+        language: 'zh',
+        weekStart: 1,
+        autoclose: 1,
+        startView: 3,
+        minView: 3,
+        forceParse: 0
+    });
+
+
+
+    $('.form_time').datetimepicker({
+        language: 'fr',
+        weekStart: 1,
+        todayBtn: 1,
+        autoclose: 1,
+        todayHighlight: 1,
+        startView: 1,
+        minView: 0,
+        maxView: 1,
+        forceParse: 0
+    });
+    </script>
+</body>
+
+</html>

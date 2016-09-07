@@ -1,0 +1,24 @@
+// 清除"数字"和"."以外的字符
+function clearNoNum(obj) {
+    obj.value = parseFloat(obj.value.replace(/[^\d.]/g, "")); //清除"数字"和"."以外的字符
+    obj.value = obj.value.replace(/^\./g, ""); //验证第一个字符是数字而不是
+    obj.value = obj.value.replace(/\.{2,}/g, "."); //只保留第一个. 清除多余的
+    obj.value = obj.value.replace(".", "$#$").replace(/\./g, "").replace("$#$", ".");
+    obj.value = obj.value.replace(/^(\-)*(\d+)\.(\d\d).*$/, '$1$2.$3'); //只能输入两个小数
+}
+
+// 把输入的大于可输入的最大值时，替换成最大值
+function monreMax(obj,max) {
+    inputValue = obj.value;
+    if(parseFloat(inputValue)>parseFloat(max)){
+        obj.value = max;
+    }
+}
+
+
+// 打包形式
+
+module.exports = {
+    clearNoNum: clearNoNum,
+    monreMax: monreMax
+}
